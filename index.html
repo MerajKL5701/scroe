@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="display">
+           <span class="score">
+            100
+           </span>
+           pts 
+        </div>
+        <div class="minus" onclick="minus_prompt(mprompt)">
+          -  
+        </div>
+        <div class="plus" onclick="minus_prompt(pprompt)">
+          +
+        </div>
+    </div>
+
+    <div class="mPrompt">
+        <input type="text" name="" id="" class="minusprompt">
+        <button class="minusbtn" onclick="CalcMinus()">
+            Minus
+        </button>
+    </div>
+
+    <div class="pPrompt">
+        <p class="clicker" >
+            Classes 
+            :-
+            <span class = "points">
+                30
+            </span>
+            pts
+        </p>
+        <p class="clicker" >
+            CS50 lecture 
+            :-
+            <span class = "points">
+                50
+            </span>
+            pts
+        </p>
+        <p class="clicker" >
+            50 steps
+            :-
+            <span class = "points">
+                1
+            </span>
+            pts
+        </p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
