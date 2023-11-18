@@ -16,7 +16,7 @@ const year = 31536000000 //no of miliseconds in a year
     
     
     onclickers()
-    let today = Math.round(Date.now()/ year)+ 1 ; // today duh
+    let today = Math.round(Date.now()/ year) + 9; // today duh
     
     
     console.log(today)
@@ -26,7 +26,7 @@ const year = 31536000000 //no of miliseconds in a year
     for (let i = 0; i < points.length; i++)
     {
         let done = document.getElementsByClassName('done')[i]
-        done.style.color = "green"
+        done.style.color = "sliver"
         done.innerHTML = localStorage.getItem('cachedLimit' + i)
     }
 }
@@ -35,11 +35,21 @@ const year = 31536000000 //no of miliseconds in a year
 function minus_prompt(e)
 {
     e.style.display = "block"
+    return;
 }
 
 
 function CalcMinus()
-{
+{ 
+    const x = localStorage.getItem('cachedDice')
+    if ((!(x == 6) || !(x == null)))
+    {
+        console.log(x)
+        mprompt.style.display = "none"
+        alert("Nope not today either");
+        return;
+    }  
+    
     let n = parseInt(score.innerHTML);
     let c = minusprompt.value;
     console.log(n + "jldfsajlf" + c)
@@ -53,6 +63,7 @@ function CalcMinus()
     {
         n -= c
     }
+
     score.innerHTML = n
     mprompt.style.display = "none"
 
@@ -70,7 +81,6 @@ function additon_calc(i)
 
     if (!(value < maxvalue))
     {
-        done.style.color = "red"
         alert("stop it damn it");
         pprompt.style.display = "none"
         return;
@@ -78,6 +88,11 @@ function additon_calc(i)
     value++
     localStorage.setItem('cachedLimit' + i , value);
     done.innerHTML = value
+    
+    if (value == maxvalue)
+    {
+        done.style.color = "red"
+    }
     let c = parseInt(points[i].innerHTML);
     let n = parseInt(score.innerHTML);
 
@@ -112,7 +127,8 @@ function saveToCache(i) {
     localStorage.setItem('cachedValue', i);
 }
 
-function getFromCache() {
+function getFromCache()
+ {
     let x = localStorage.getItem('cachedValue');
     if (!(x == null))
     {
@@ -130,9 +146,12 @@ function datechange(today)
         localStorage.setItem('cachedDate', today)
         return 100;
     }
-    else if (!(today == x))
+    if (!(today == x))
     {
         localStorage.setItem('cachedDate', today);
+        const dice = Math.fllor(Math.random() * 6); 
+        console.log("dice:" + dice)
+        localStorage.setItem('cachedDice', dice);
         for (let i = 0; i < points.length; i++)
         {
             localStorage.setItem('cachedLimit' + i, 0)

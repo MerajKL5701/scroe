@@ -33,6 +33,7 @@ html, body
     
     background-color: hsla(0, 0%, 100%, 10%);
 }
+
 .minus
 {
     grid-row: 2;
