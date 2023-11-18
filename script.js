@@ -50,7 +50,6 @@ function CalcMinus()
     {
         console.log(x)
         mprompt.style.display = "none"
-        alert("Nope not today either");
         return;
     }  
     
