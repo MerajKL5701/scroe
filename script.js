@@ -59,7 +59,6 @@ function CalcMinus()
     
     if (n < c)
     {
-        alert("too much value")
         return;
     }
     else 
@@ -84,7 +83,6 @@ function additon_calc(i)
 
     if (!(value < maxvalue))
     {
-        alert("stop it damn it");
         pprompt.style.display = "none"
         return;
     }
