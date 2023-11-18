@@ -4,14 +4,33 @@ const  mprompt = document.getElementsByClassName("mPrompt")[0]
 const  pprompt = document.getElementsByClassName("pPrompt")[0]
 const clicker = document.getElementsByClassName("clicker")
 const points = document.getElementsByClassName("points")
+const year = 31536000000 //no of miliseconds in a year
 
-mprompt.style.display = "none"
-pprompt.style.display = "none"
 
-onclickers()
 
-score.innerHTML = getFromCache(); 
 
+{
+    mprompt.style.display = "none"
+    pprompt.style.display = "none"
+    
+    
+    
+    onclickers()
+    let today = Math.round(Date.now()/ year)+ 1 ; // today duh
+    
+    
+    console.log(today)
+    datechange(today)
+    
+    score.innerHTML = getFromCache(); 
+    for (let i = 0; i < points.length; i++)
+    {
+        let done = document.getElementsByClassName('done')[i]
+        done.style.color = "green"
+        done.innerHTML = localStorage.getItem('cachedLimit' + i)
+    }
+}
+    
 
 function minus_prompt(e)
 {
@@ -44,15 +63,32 @@ function CalcMinus()
 
 function additon_calc(i)
 {
+    const limit = document.getElementsByClassName("limit")[i];
+    const done = document.getElementsByClassName("done")[i];
+    let value = localStorage.getItem('cachedLimit' + i);
+    const maxvalue = parseInt(limit.innerHTML)
+
+    if (!(value < maxvalue))
+    {
+        done.style.color = "red"
+        alert("stop it damn it");
+        pprompt.style.display = "none"
+        return;
+    }
+    value++
+    localStorage.setItem('cachedLimit' + i , value);
+    done.innerHTML = value
     let c = parseInt(points[i].innerHTML);
     let n = parseInt(score.innerHTML);
 
-    console.log(c)
-    
+
+
     n += c;
 
     score.innerHTML = n
     pprompt.style.display = "none"
+
+ 
 
     saveToCache(n);
 
@@ -83,4 +119,29 @@ function getFromCache() {
         return x;
     }
     return 100;
+}
+
+function datechange(today)
+{
+    let x = localStorage.getItem('cachedDate')
+    console.log("cached : " + x)
+    if (x == null)
+    {
+        localStorage.setItem('cachedDate', today)
+        return 100;
+    }
+    else if (!(today == x))
+    {
+        localStorage.setItem('cachedDate', today);
+        for (let i = 0; i < points.length; i++)
+        {
+            localStorage.setItem('cachedLimit' + i, 0)
+        }
+        alert("date change has being detected");
+        return;
+    }
+    else
+    {
+        return;
+    }
 }
