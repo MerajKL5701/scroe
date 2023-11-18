@@ -46,7 +46,7 @@ function CalcMinus()
         localStorage.setItem('cachedDice', Math.floor(Math.random * 6) + 1)
     }
     const x = localStorage.getItem('cachedDice')
-    if (!(x == 6))
+    if (!(x == 1000))
     {
         console.log(x)
         mprompt.style.display = "none"
