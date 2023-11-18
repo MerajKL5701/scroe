@@ -41,8 +41,12 @@ function minus_prompt(e)
 
 function CalcMinus()
 { 
+    if (localStorage.getItem('cachedDice') == null)
+    {
+        localStorage.setItem('cachedDice', Math.floor(Math.random * 6) + 1)
+    }
     const x = localStorage.getItem('cachedDice')
-    if ((!(x == 6) || !(x == null)))
+    if (!(x == 6))
     {
         console.log(x)
         mprompt.style.display = "none"
