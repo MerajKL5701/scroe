@@ -16,8 +16,8 @@ const year = 31536000000 //no of miliseconds in a year
     
     
     onclickers()
-    // let today = Math.round(Date.now()/ year)  ; // today duh
-    let today = prompt("today?")
+    let today = Math.round(Date.now()/ year)  ; // today duh
+    // let today = prompt("today?")
     
     datechange(today)
     
