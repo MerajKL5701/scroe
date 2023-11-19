@@ -34,6 +34,19 @@ const year = 31536000000 //no of miliseconds in a year
 
 function minus_prompt(e)
 {
+    if (localStorage.getItem('cachedDice') == null)
+    {
+        localStorage.setItem('cachedDice', Math.floor(Math.random * 6) + 1)
+    }
+    if (e == mprompt)
+    {
+        const x = localStorage.getItem('cachedDice')
+        if (!(x == 6))
+        {
+            
+            return;
+        } 
+    }
     e.style.display = "block"
     return;
 }
@@ -41,16 +54,7 @@ function minus_prompt(e)
 
 function CalcMinus()
 { 
-    if (localStorage.getItem('cachedDice') == null)
-    {
-        localStorage.setItem('cachedDice', Math.floor(Math.random * 6) + 1)
-    }
-    const x = localStorage.getItem('cachedDice')
-    if (!(x == 6))
-    {
-        mprompt.style.display = "none"
-        return;
-    }  
+    
     
     let n = parseInt(score.innerHTML);
     let c = minusprompt.value;
