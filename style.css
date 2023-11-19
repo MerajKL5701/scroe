@@ -111,6 +111,7 @@ html, body
     border: 1px hsl(180, 100%, 20%) solid;
     box-shadow: 2px 2px cyan;
     font-size: 300%;
+    overflow: hidden;
 }
 .points, .drank
 {

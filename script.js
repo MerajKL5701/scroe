@@ -17,7 +17,7 @@ const year = 31536000000 //no of miliseconds in a year
     
     onclickers()
     let today = Math.round(Date.now()/ year) ; // today duh
-    
+    // let today = prompt("today?")
     
     console.log(today)
     datechange(today)
@@ -93,6 +93,7 @@ function additon_calc(i)
     if (value == maxvalue)
     {
         done.style.color = "red"
+        clicker[i].style.height = "0px"
     }
     let c = parseInt(points[i].innerHTML);
     let n = parseInt(score.innerHTML);
@@ -149,6 +150,8 @@ function datechange(today)
     }
     if (!(today == x))
     {
+        localStorage.clear();
+
         localStorage.setItem('cachedDate', today);
         const dice = Math.fllor(Math.random() * 6); 
         console.log("dice:" + dice)
@@ -156,6 +159,8 @@ function datechange(today)
         for (let i = 0; i < points.length; i++)
         {
             localStorage.setItem('cachedLimit' + i, 0)
+            clicker[i].style.height = "auto"
+
         }
         alert("date change has being detected");
         return;
