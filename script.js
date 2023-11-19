@@ -16,10 +16,9 @@ const year = 31536000000 //no of miliseconds in a year
     
     
     onclickers()
-    let today = Math.round(Date.now()/ year) ; // today duh
-    // let today = prompt("today?")
+    // let today = Math.round(Date.now()/ year)  ; // today duh
+    let today = prompt("today?")
     
-    console.log(today)
     datechange(today)
     
     score.innerHTML = getFromCache(); 
@@ -29,6 +28,7 @@ const year = 31536000000 //no of miliseconds in a year
         done.style.color = "sliver"
         done.innerHTML = localStorage.getItem('cachedLimit' + i)
     }
+    sizeOfChecker()
 }
     
 
@@ -48,14 +48,12 @@ function CalcMinus()
     const x = localStorage.getItem('cachedDice')
     if (!(x == 6))
     {
-        console.log(x)
         mprompt.style.display = "none"
         return;
     }  
     
     let n = parseInt(score.innerHTML);
     let c = minusprompt.value;
-    console.log(n + "jldfsajlf" + c)
     
     if (n < c)
     {
@@ -93,7 +91,6 @@ function additon_calc(i)
     if (value == maxvalue)
     {
         done.style.color = "red"
-        clicker[i].style.height = "0px"
     }
     let c = parseInt(points[i].innerHTML);
     let n = parseInt(score.innerHTML);
@@ -108,6 +105,7 @@ function additon_calc(i)
  
 
     saveToCache(n);
+    sizeOfChecker()
 
     return;
     
@@ -142,7 +140,6 @@ function getFromCache()
 function datechange(today)
 {
     let x = localStorage.getItem('cachedDate')
-    console.log("cached : " + x)
     if (x == null)
     {
         localStorage.setItem('cachedDate', today)
@@ -150,17 +147,20 @@ function datechange(today)
     }
     if (!(today == x))
     {
+
+        const temp = localStorage.getItem('cachedValue')
         localStorage.clear();
 
+        localStorage.setItem('cachedValue', temp)
+
         localStorage.setItem('cachedDate', today);
-        const dice = Math.fllor(Math.random() * 6); 
+        const dice = Math.floor(Math.random() * 6) + 1; 
+        alert("luck? " + dice)
         console.log("dice:" + dice)
         localStorage.setItem('cachedDice', dice);
         for (let i = 0; i < points.length; i++)
         {
             localStorage.setItem('cachedLimit' + i, 0)
-            clicker[i].style.height = "auto"
-
         }
         alert("date change has being detected");
         return;
@@ -169,4 +169,24 @@ function datechange(today)
     {
         return;
     }
+}
+function sizeOfChecker()
+{
+    const done = document.getElementsByClassName("done");
+    const limit = document.getElementsByClassName("limit");
+    for (let i = 0, n = clicker.length; i < n; i++)
+    {
+        console.log("dice no "+ i + " value " + Math.floor(Math.random() * 6) + 6 )
+        const m = parseInt(done[i].innerHTML);
+        const n = parseInt(limit[i].innerHTML);
+        if (m == n)
+        {
+            clicker[i].style.height = "0px"
+        }
+        else 
+        {
+            clicker[i].style.height = "auto"
+        }
+    }
+    return;
 }
