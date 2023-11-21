@@ -1,98 +1,129 @@
-const score = document.getElementsByClassName("score")[0];
-const minusprompt = document.getElementsByClassName("minusprompt")[0];
-const mprompt = document.getElementsByClassName("mPrompt")[0];
-const pprompt = document.getElementsByClassName("pPrompt")[0];
-const clicker = document.getElementsByClassName("clicker");
-const points = document.getElementsByClassName("points");
-const year = 31536000000; // Number of milliseconds in a year
+const  score = document.getElementsByClassName("score")[0]
+const  minusprompt = document.getElementsByClassName("minusprompt")[0]
+const  mprompt = document.getElementsByClassName("mPrompt")[0]
+const  pprompt = document.getElementsByClassName("pPrompt")[0]
+const clicker = document.getElementsByClassName("clicker")
+const points = document.getElementsByClassName("points")
+const year = 31536000000 //no of miliseconds in a year
 
-mprompt.style.display = "none";
-pprompt.style.display = "none";
 
-init();
 
-function init() {
-    onclickers();
-    let today = Math.round(Date.now() / year); // today
-    datechange(today);
 
-    score.innerHTML = getFromCache();
+{
+    mprompt.style.display = "none"
+    pprompt.style.display = "none"
     
-    for (let i = 0; i < points.length; i++) {
-        let done = document.getElementsByClassName('done')[i];
-        done.style.color = "silver";
-        done.innerHTML = localStorage.getItem('cachedLimit' + i);
+    
+    
+    onclickers()
+    let today = Math.round(Date.now()/ year)  ; // today duh
+    // let today = prompt("today?")
+    
+    datechange(today)
+    
+    score.innerHTML = getFromCache(); 
+    for (let i = 0; i < points.length; i++)
+    {
+        let done = document.getElementsByClassName('done')[i]
+        done.style.color = "sliver"
+        done.innerHTML = localStorage.getItem('cachedLimit' + i)
     }
-
-    sizeOfChecker();
+    sizeOfChecker()
 }
+    
 
-function minus_prompt(e) {
-    if (localStorage.getItem('cachedDice') === null) {
-        localStorage.setItem('cachedDice', Math.floor(Math.random() * 6) + 1);
+function minus_prompt(e)
+{
+    if (localStorage.getItem('cachedDice') == null)
+    {
+        localStorage.setItem('cachedDice', Math.floor(Math.random * 6) + 1)
     }
-
-    if (e === mprompt) {
-        const x = localStorage.getItem('cachedDice');
-        if (!(x === '6')) {
+    if (e == mprompt)
+    {
+        const x = localStorage.getItem('cachedDice')
+        if (!(x == 6))
+        {
+            
             return;
-        }
+        } 
     }
-
-    e.style.display = "block";
+    e.style.display = "block"
+    return;
 }
 
-function CalcMinus() {
-    let n = parseInt(score.innerHTML);
-    let c = parseInt(minusprompt.value);
 
-    if (n < c) {
+function CalcMinus()
+{ 
+    
+    
+    let n = parseInt(score.innerHTML);
+    let c = minusprompt.value;
+    
+    if (n < c)
+    {
         return;
-    } else {
-        n -= c;
+    }
+    else 
+    {
+        n -= c
     }
 
-    score.innerHTML = n;
-    mprompt.style.display = "none";
+    score.innerHTML = n
+    mprompt.style.display = "none"
 
     saveToCache(n);
+
+    return;
 }
 
-function additon_calc(i) {
+function additon_calc(i)
+{
     const limit = document.getElementsByClassName("limit")[i];
     const done = document.getElementsByClassName("done")[i];
-    let value = parseInt(localStorage.getItem('cachedLimit' + i));
-    const maxvalue = parseInt(limit.innerHTML);
+    let value = localStorage.getItem('cachedLimit' + i);
+    const maxvalue = parseInt(limit.innerHTML)
 
-    if (!(value < maxvalue)) {
-        pprompt.style.display = "none";
+    if (!(value < maxvalue))
+    {
+        pprompt.style.display = "none"
         return;
     }
-
-    value++;
-    localStorage.setItem('cachedLimit' + i, value);
-    done.innerHTML = value;
-
-    if (value === maxvalue) {
-        done.style.color = "red";
+    value++
+    localStorage.setItem('cachedLimit' + i , value);
+    done.innerHTML = value
+    
+    if (value == maxvalue)
+    {
+        done.style.color = "red"
     }
-
     let c = parseInt(points[i].innerHTML);
     let n = parseInt(score.innerHTML);
 
+
+
     n += c;
-    score.innerHTML = n;
-    pprompt.style.display = "none";
+
+    score.innerHTML = n
+    pprompt.style.display = "none"
+
+ 
 
     saveToCache(n);
-    sizeOfChecker();
+    sizeOfChecker()
+
+    return;
+    
 }
 
-function onclickers() {
-    for (let i = 0; i < clicker.length; i++) {
-        clicker[i].onclick = function () {
-            additon_calc(i);
-        };
+function onclickers()
+{
+    for (let i = 0; i < clicker.length; i++)
+    {
+        clicker[i].onclick = function ()
+        {
+        additon_calc(i)
+        }
+            
     }
 }
 
@@ -100,54 +131,66 @@ function saveToCache(i) {
     localStorage.setItem('cachedValue', i);
 }
 
-function getFromCache() {
+function getFromCache()
+ {
     let x = localStorage.getItem('cachedValue');
-    return x !== null ? x : 100;
+    if (!(x == null))
+    {
+        return x;
+    }
+    return 100;
 }
 
-function datechange(today) {
-    let x = localStorage.getItem('cachedDate');
-
-    if (x === null) {
-        localStorage.setItem('cachedDate', today);
+function datechange(today)
+{
+    let x = localStorage.getItem('cachedDate')
+    if (x == null)
+    {
+        localStorage.setItem('cachedDate', today)
         return 100;
     }
+    if (!(today == x))
+    {
 
-    if (today !== parseInt(x)) {
-        const temp = localStorage.getItem('cachedValue');
-        localStorage.removeItem('cachedValue');
-        localStorage.setItem('cachedValue', temp);
+        const temp = localStorage.getItem('cachedValue')
+        localStorage.clear();
+
+        localStorage.setItem('cachedValue', temp)
 
         localStorage.setItem('cachedDate', today);
-        const dice = Math.floor(Math.random() * 6) + 1;
-        console.log("luck? " + dice);
-        console.log("dice:" + dice);
+        const dice = Math.floor(Math.random() * 6) + 1; 
+        alert("luck? " + dice)
+        console.log("dice:" + dice)
         localStorage.setItem('cachedDice', dice);
-
-        for (let i = 0; i < points.length; i++) {
-            localStorage.setItem('cachedLimit' + i, 0);
+        for (let i = 0; i < points.length; i++)
+        {
+            localStorage.setItem('cachedLimit' + i, 0)
         }
-
-        alert("Date change has been detected");
+        alert("date change has being detected");
         return;
-    } else {
+    }
+    else
+    {
         return;
     }
 }
-
-function sizeOfChecker() {
+function sizeOfChecker()
+{
     const done = document.getElementsByClassName("done");
     const limit = document.getElementsByClassName("limit");
-
-    for (let i = 0, n = clicker.length; i < n; i++) {
-        console.log("dice no " + i + " value " + (Math.floor(Math.random() * 6) + 6));
+    for (let i = 0, n = clicker.length; i < n; i++)
+    {
+        console.log("dice no "+ i + " value " + Math.floor(Math.random() * 6) + 6 )
         const m = parseInt(done[i].innerHTML);
-        const l = parseInt(limit[i].innerHTML);
-
-        if (m === l) {
-            clicker[i].style.height = "0px";
-        } else {
-            clicker[i].style.height = "auto";
+        const n = parseInt(limit[i].innerHTML);
+        if (m == n)
+        {
+            clicker[i].style.height = "0px"
+        }
+        else 
+        {
+            clicker[i].style.height = "auto"
         }
     }
-}
+    return;
+} 
