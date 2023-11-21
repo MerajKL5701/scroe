@@ -17,7 +17,7 @@ const date = document.getElementsByClassName("date")[0];
     
     onclickers()
     let today = Math.round(Date.now()/ year)  ; // today duh
-    date.innerHTML = today
+    date.innerHTML = today - 51;
     // let today = prompt("today?")
     
     datechange(today)
