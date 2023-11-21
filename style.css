@@ -38,7 +38,7 @@ html, body
 }
 .today
 {
-    background-color: black;
+    background-color: hsla(0, 0%, 0%, 80%);
     color: cyan;
     border: cyan 2px solid;
 }
