@@ -139,7 +139,7 @@ function getFromCache()
     {
         return x;
     }
-    return 100;
+    return 270;
 }
 
 function datechange(today)

@@ -22,7 +22,7 @@ html, body
     height: 99vh;
     width: 99vw;
     border-radius: 2%;
-    border: 3px cyan solid;
+    border: 3px cyan solid ;
     display: grid;
     grid-gap: 10px;
     grid-template-rows: 70% 30%;
@@ -45,7 +45,8 @@ html, body
     position: absolute;
     bottom: 10px;
     width:100%;
-    border: cyan 2px solid;
+    border: cyan  solid;
+    border-width: 2px 0px;
 }
 .minus
 {
