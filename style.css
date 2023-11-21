@@ -45,7 +45,7 @@ html, body
     position: absolute;
     bottom: 10px;
     width:100%;
-    border: cyan  solid;
+    border: silver  solid;
     border-width: 2px 0px;
 }
 .minus
