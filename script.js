@@ -5,7 +5,7 @@ const  pprompt = document.getElementsByClassName("pPrompt")[0]
 const clicker = document.getElementsByClassName("clicker")
 const points = document.getElementsByClassName("points")
 const year = 31536000000 //no of miliseconds in a year
-
+const date = document.getElementsByClassName("date")[0];
 
 
 
@@ -17,6 +17,7 @@ const year = 31536000000 //no of miliseconds in a year
     
     onclickers()
     let today = Math.round(Date.now()/ year)  ; // today duh
+    date.innerHTML = today
     // let today = prompt("today?")
     
     datechange(today)
