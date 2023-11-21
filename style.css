@@ -33,13 +33,18 @@ html, body
 {
     grid-row: 1;
     grid-column: 1 / 3;
-    
-    background-color: hsla(0, 0%, 100%, 10%);
+    position: relative;
+    /* place-content: center; */
+    place-items: center;
+    background-color  : hsla(0, 0%, 100%, 10%);
 }
 .today
 {
     background-color: hsla(0, 0%, 0%, 80%);
     color: cyan;
+    position: absolute;
+    bottom: 10px;
+    width:100%;
     border: cyan 2px solid;
 }
 .minus
