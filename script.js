@@ -36,12 +36,13 @@ const date = document.getElementsByClassName("date")[0];
 
 function minus_prompt(e)
 {
-    if (localStorage.getItem('cachedDice') == null || localStorage.getItem('cachedDice') == NaN)
-    {
-        localStorage.setItem('cachedDice', Math.floor(Math.random * 6) + 1)
-    }
+ 
     if (e == mprompt)
     {
+        if (localStorage.getItem('cachedDice') == null || localStorage.getItem('cachedDice') == NaN)
+        {
+            localStorage.setItem('cachedDice', Math.floor(Math.random * 6) + 1)
+        }
         const x = localStorage.getItem('cachedDice')
         if (!(x == 6))
         {
