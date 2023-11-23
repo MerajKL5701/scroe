@@ -42,7 +42,8 @@ function minus_prompt(e)
         const x = localStorage.getItem('cachedDice')
         if (x === null)
         {
-            localStorage.setItem('cachedDice', Math.floor(Math.random * 6) + 1)
+
+            localStorage.setItem('cachedDice', Math.floor(Math.random() * 6) + 1)
         }
         if (!(x == 6))
         {
