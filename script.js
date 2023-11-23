@@ -23,7 +23,7 @@ const date = document.getElementsByClassName("date")[0];
     
     datechange(today)
     
-    score.innerHTML = getFromCache(); 
+    score.innerHTML = getFromCache('cachedValue'); 
     for (let i = 0; i < points.length; i++)
     {
         let done = document.getElementsByClassName('done')[i]
