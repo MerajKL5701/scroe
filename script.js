@@ -40,7 +40,7 @@ function minus_prompt(e)
     if (e == mprompt)
     {
         const x = localStorage.getItem('cachedDice')
-        if (x == null || x == NaN)
+        if (x === null)
         {
             localStorage.setItem('cachedDice', Math.floor(Math.random * 6) + 1)
         }
