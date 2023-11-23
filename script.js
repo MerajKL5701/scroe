@@ -36,7 +36,7 @@ const date = document.getElementsByClassName("date")[0];
 
 function minus_prompt(e)
 {
- 
+    
     if (e == mprompt)
     {
         const x = localStorage.getItem('cachedDice')
@@ -46,6 +46,7 @@ function minus_prompt(e)
         }
         if (!(x == 6))
         {
+            alert(x)
             document.getElementsByClassName("minus")[0].innerHTML = x
             return;
         } 
