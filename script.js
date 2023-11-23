@@ -39,11 +39,11 @@ function minus_prompt(e)
  
     if (e == mprompt)
     {
-        if (localStorage.getItem('cachedDice') == null || localStorage.getItem('cachedDice') == NaN)
+        const x = localStorage.getItem('cachedDice')
+        if (x == null || x == NaN)
         {
             localStorage.setItem('cachedDice', Math.floor(Math.random * 6) + 1)
         }
-        const x = localStorage.getItem('cachedDice')
         if (!(x == 6))
         {
             document.getElementsByClassName("minus")[0].innerHTML = x
