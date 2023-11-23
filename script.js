@@ -23,7 +23,7 @@ const date = document.getElementsByClassName("date")[0];
     
     datechange(today)
     
-    score.innerHTML = getFromCache('cachedValue'); 
+    score.innerHTML = getFromCache(); 
     for (let i = 0; i < points.length; i++)
     {
         let done = document.getElementsByClassName('done')[i]
@@ -36,6 +36,7 @@ const date = document.getElementsByClassName("date")[0];
 
 function minus_prompt(e)
 {
+    prompt()
  
     if (e == mprompt)
     {
