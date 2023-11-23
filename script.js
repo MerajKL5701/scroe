@@ -4,7 +4,7 @@ const  mprompt = document.getElementsByClassName("mPrompt")[0]
 const  pprompt = document.getElementsByClassName("pPrompt")[0]
 const clicker = document.getElementsByClassName("clicker")
 const points = document.getElementsByClassName("points")
-const year = 31536000000 //no of miliseconds in a year
+const day = 24 * 60 * 60 * 1000 //no of miliseconds in a day
 const date = document.getElementsByClassName("date")[0];
 
 
@@ -16,8 +16,9 @@ const date = document.getElementsByClassName("date")[0];
     
     
     onclickers()
-    let today = Math.round(Date.now()/ year)  ; // today duh
+    let today = Math.round(Date.now()/ day)  ; // today duh
     date.innerHTML = today - 51;
+    
     // let today = prompt("today?")
     
     datechange(today)
@@ -31,7 +32,7 @@ const date = document.getElementsByClassName("date")[0];
     }
     sizeOfChecker()
 }
-    
+
 
 function minus_prompt(e)
 {
@@ -44,7 +45,7 @@ function minus_prompt(e)
         const x = localStorage.getItem('cachedDice')
         if (!(x == 6))
         {
-            
+            document.getElementsByClassName("minus")[0].innerHTML = x
             return;
         } 
     }
