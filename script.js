@@ -162,14 +162,18 @@ function datechange(today)
         localStorage.setItem('cachedValue', temp)
 
         localStorage.setItem('cachedDate', today);
+
         const dice = Math.floor(Math.random() * 6) + 1; 
         alert("luck? " + dice)
         console.log("dice:" + dice)
+
         localStorage.setItem('cachedDice', dice);
+
         for (let i = 0; i < points.length; i++)
         {
             localStorage.setItem('cachedLimit' + i, 0)
         }
+        
         alert("date change has being detected");
         return;
     }
