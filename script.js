@@ -17,7 +17,7 @@ const date = document.getElementsByClassName("date")[0];
     
     onclickers()
     let today = Math.round(Date.now()/ day)  ; // today duh
-    date.innerHTML = today - 19679;
+    date.innerHTML = today - 19679 ;
     
     // let today = prompt("today?")
     
@@ -36,7 +36,6 @@ const date = document.getElementsByClassName("date")[0];
 
 function minus_prompt(e)
 {
-    prompt()
  
     if (e == mprompt)
     {
@@ -173,7 +172,7 @@ function datechange(today)
         {
             localStorage.setItem('cachedLimit' + i, 0)
         }
-        
+
         alert("date change has being detected");
         return;
     }
