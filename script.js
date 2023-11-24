@@ -16,7 +16,7 @@ const date = document.getElementsByClassName("date")[0];
     
     
     onclickers()
-    let today = Math.round(Date.now()/ day)  ; // today duh
+    const today = Math.floor(Date.now() / day);// today duh
     date.innerHTML = today - 19679 ;
     
     // let today = prompt("today?")
@@ -31,6 +31,8 @@ const date = document.getElementsByClassName("date")[0];
         done.innerHTML = localStorage.getItem('cachedLimit' + i)
     }
     sizeOfChecker()
+    const x = localStorage.getItem('cachedDate')
+    alert(" today:- " + today + "local storage" + x);
 }
 
 
@@ -175,7 +177,7 @@ function datechange(today)
             localStorage.setItem('cachedLimit' + i, 0)
         }
 
-        alert("date change has being detected");
+        alert("date change has being detected today:- " + today + "local storage" + x);
         return;
     }
     else
