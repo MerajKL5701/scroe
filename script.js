@@ -175,7 +175,7 @@ function datechange(today)
             localStorage.setItem('cachedLimit' + i, 0)
         }
 
-        alert("date change has being detected");
+        alert("date change has being detected today:- " + today);
         return;
     }
     else
