@@ -31,7 +31,7 @@ const date = document.getElementsByClassName("date")[0];
         done.innerHTML = localStorage.getItem('cachedLimit' + i)
     }
     sizeOfChecker()
-    const storeddate = localStorage.getItem('cachedDate')
+    const x = localStorage.getItem('cachedDate')
     alert(" today:- " + today + "local storage" + x);
 }
 
