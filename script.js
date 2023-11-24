@@ -31,6 +31,8 @@ const date = document.getElementsByClassName("date")[0];
         done.innerHTML = localStorage.getItem('cachedLimit' + i)
     }
     sizeOfChecker()
+    const storeddate = localstorage.getitem('cachedDate')
+    alert(" today:- " + today + "local storage" + x);
 }
 
 
@@ -175,7 +177,7 @@ function datechange(today)
             localStorage.setItem('cachedLimit' + i, 0)
         }
 
-        alert("date change has being detected today:- " + today);
+        alert("date change has being detected today:- " + today + "local storage" + x);
         return;
     }
     else
