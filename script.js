@@ -154,7 +154,7 @@ function datechange(today)
         localStorage.setItem('cachedDate', today)
         return 100;
     }
-    if (!(today == x))
+    if ((today !== x))
     {
 
         const temp = localStorage.getItem('cachedValue')
