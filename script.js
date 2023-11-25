@@ -4,8 +4,7 @@ const  mprompt = document.getElementsByClassName("mPrompt")[0]
 const  pprompt = document.getElementsByClassName("pPrompt")[0]
 const clicker = document.getElementsByClassName("clicker")
 const points = document.getElementsByClassName("points")
-const hour =  60 * 60 * 1000 //no of miliseconds in a hour
-const day = 24 * hour //no of miliseconds in a day
+const day = 24 * 60 * 60 * 1000 //no of miliseconds in a day
 const date = document.getElementsByClassName("date")[0];
 
 
@@ -17,12 +16,9 @@ const date = document.getElementsByClassName("date")[0];
     
     
     onclickers()
-    const today = Math.floor((Date.now() - (hour * 5)) / day);// today duh
-    date.innerHTML = today ;
+    const today = Math.floor(Date.now() / day);// today duh
+    date.innerHTML = today - 19679 ;
     
-    alert(" today:- " + today );
-    const x = localStorage.getItem('cachedDate');
-    alert("  local storage" + x);
     // let today = prompt("today?")
     
     datechange(today)
@@ -35,7 +31,8 @@ const date = document.getElementsByClassName("date")[0];
         done.innerHTML = localStorage.getItem('cachedLimit' + i)
     }
     sizeOfChecker()
-    
+    const x = localStorage.getItem('cachedDate')
+    alert(" today:- " + today + "local storage" + x);
 }
 
 
