@@ -20,6 +20,8 @@ const date = document.getElementsByClassName("date")[0];
     const today = Math.floor((Date.now() - (hour * 5)) / day);// today duh
     date.innerHTML = today ;
     
+    alert(" today:- " + today );
+    alert("  local storage" + x);
     // let today = prompt("today?")
     
     datechange(today)
@@ -33,7 +35,7 @@ const date = document.getElementsByClassName("date")[0];
     }
     sizeOfChecker()
     const x = localStorage.getItem('cachedDate')
-    alert(" today:- " + today + "local storage" + x);
+    
 }
 
 
