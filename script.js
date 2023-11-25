@@ -17,7 +17,7 @@ const date = document.getElementsByClassName("date")[0];
     
     
     onclickers()
-    const today = Math.floor(((Date.now() * hour) - 5) / day);// today duh
+    const today = Math.floor(((Date.now() / hour) - 5) / 24);// today duh
     date.innerHTML = today - 19679 ;
     
     // let today = prompt("today?")
