@@ -33,7 +33,7 @@ const date = document.getElementsByClassName("date")[0];
     }
     sizeOfChecker()
     const x = localStorage.getItem('cachedDate')
-    // alert(" today:- " + today + "local storage" + x);
+    alert(" today:- " + today + "local storage" + x);
 }
 
 
