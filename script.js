@@ -25,6 +25,7 @@ const date = document.getElementsByClassName("date")[0];
     datechange(today)
     
     score.innerHTML = getFromCache(); 
+
     for (let i = 0; i < points.length; i++)
     {
         let done = document.getElementsByClassName('done')[i]
@@ -33,7 +34,6 @@ const date = document.getElementsByClassName("date")[0];
     }
     sizeOfChecker()
     const x = localStorage.getItem('cachedDate')
-    alert(" today:- " + today + "local storage" + x);
 }
 
 
