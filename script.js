@@ -29,6 +29,7 @@ const date = document.getElementsByClassName("date")[0];
     {
         localStorage.setItem('cachedColor', Math.floor(Math.random * 2))
     }
+    random = prompt("faj")
     colorchange(random)
     
     for (let i = 0; i < points.length; i++)
