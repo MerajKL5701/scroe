@@ -4,7 +4,8 @@ const  mprompt = document.getElementsByClassName("mPrompt")[0]
 const  pprompt = document.getElementsByClassName("pPrompt")[0]
 const clicker = document.getElementsByClassName("clicker")
 const points = document.getElementsByClassName("points")
-const day = 24 * 60 * 60 * 1000 //no of miliseconds in a day
+const hour =  60 * 60 * 1000 //no of miliseconds in a hour
+const day = 24 * hour//no of miliseconds in a day
 const date = document.getElementsByClassName("date")[0];
 
 
@@ -16,7 +17,7 @@ const date = document.getElementsByClassName("date")[0];
     
     
     onclickers()
-    const today = Math.floor(Date.now() / day);// today duh
+    const today = Math.floor((Date.now() - ((hour / 2) * 5)) / day);// today duh
     date.innerHTML = today - 19679 ;
     
     // let today = prompt("today?")
