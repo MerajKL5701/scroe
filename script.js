@@ -7,7 +7,7 @@ const points = document.getElementsByClassName("points")
 const hour =  60 * 60 * 1000 //no of miliseconds in a hour
 const day = 24 * hour//no of miliseconds in a day
 const date = document.getElementsByClassName("date")[0];
-const nColor = 8;
+const nColor = 3;
 
 
 {
@@ -16,19 +16,20 @@ const nColor = 8;
     
     alert("no prompt?")
     onclickers()
-    let today = Math.floor((Date.now() - ((hour)* 4.0)) / day);// today duh
+    let today = Math.floor((Date.now() - ((hour)* 4)) / day);// today duh
     date.innerHTML = today - 19679 ;
     
     // let today = prompt("today?")
     
     dateCheck(today)
-    colorchange();
+    colorchange(random);
     score.innerHTML = getFromCache(); 
     let random = localStorage.getItem('cachedColor');
     if (random == null)
     {
-        localStorage.setItem('cachedColor', Math.floor(Math.random * nColor))
+        localStorage.setItem('cachedColor', Math.floor(Math.random() * nColor))
     }
+
     colorchange(random)
     
     for (let i = 0; i < points.length; i++)
