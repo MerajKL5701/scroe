@@ -6,7 +6,11 @@
 }
 :root
 {
-    --textureColor : cyan;
+    color: hsl(6, 78%, 57%);
+    color: hsl(145, 63%, 49%);
+    --color : 0, 100%, 0%;
+    --textureColor : 51, 100%, 50%;
+    --accentColor:0, 0%, 100%;
 }
 hr 
 {
@@ -19,7 +23,7 @@ html, body
     margin: 0;
     display: grid;
     place-content: center;
-    background-color: black;
+    background-color: hsl(var(--color));
 }
 
 .main 
@@ -27,7 +31,7 @@ html, body
     height: 99vh;
     width: 99vw;
     border-radius: 2%;
-    border: 3px var(--textureColor) solid ;
+    border: 3px hsl(var(--textureColor)) solid ;
     display: grid;
     grid-gap: 10px;
     grid-template-rows: 70% 30%;
@@ -41,16 +45,16 @@ html, body
     position: relative;
     /* place-content: center; */
     place-items: center;
-    background-color  : hsla(0, 0%, 100%, 10%);
+    background-color  : hsla(var(--accentColor), 10%);
 }
 .today
 {
-    background-color: hsla(0, 0%, 0%, 80%);
-    color: var(--textureColor);
+    background-color: hsla(var(--color), 80%);
+    color: hsl(var(--textureColor));
     position: absolute;
     bottom: 10px;
     width:100%;
-    border: silver  solid;
+    border: hsl(var(--accentColor))  solid;
     border-width: 2px 0px;
 }
 .minus
@@ -60,8 +64,8 @@ html, body
     font-size: 150px;
     text-align: center;
     border-top-left-radius: 10px;
-    border: hsla(240, 100%, 50%, 100%) solid 2px;
-    color: blue;
+    border: hsl(var(--textureColor)) solid 2px;
+    color: hsl(var(--textureColor));
 }
 .plus
 {
@@ -70,12 +74,12 @@ html, body
     grid-column: 1;
     font-size: 150px;
     text-align: center;
-    border: hsla(0, 100%, 50%, 100%) solid 2px;
-    color: red;
+    border: hsl(var(--textureColor)) solid 2px;
+    color: hsl(var(--textureColor));
 }
 .display
 {
-    color: var(--textureColor);
+    color: hsl(var(--textureColor));
     font-size: 50px;
     text-align: center;
 }
@@ -87,8 +91,8 @@ html, body
 
 .minusprompt
 {
-    background-color: black;
-    color: var(--textureColor);
+    background-color: hsl(var(--color));
+    color: hsl(var(--textureColor));
     height: 100px;
     width: 100%;
     font-size: 300%;
@@ -100,10 +104,10 @@ html, body
 {
     height: 100px;
     width: 100%;
-   color:white;
-   background-color: black;
+   color:hsl(var(--accentColor));
+   background-color: hsl(var(--color));
    font-size: 50px;
-    border: var(--textureColor) 5px solid;
+    border: hsl(var(--textureColor)) 5px solid;
 
 }
 .mPrompt
@@ -119,27 +123,27 @@ html, body
 }
 .pPrompt 
 {
-    color: white;
+    color: hsl(var(--accentColor));
     position: absolute;
     overflow: scroll;
-    background-color: hsl(0, 0%, 0%);
+    background-color: hsl(var(--color));
     
 }
 .clicker
 {
     border: 1px hsl(180, 100%, 20%) solid;
-    box-shadow: 2px 2px var(--textureColor);
+    box-shadow: 2px 2px hsl(var(--textureColor));
     font-size: 300%;
     overflow: hidden;
 }
 .points, .drank
 {
-    color: var(--textureColor);
+    color: hsl(var(--textureColor));
     font-size: 130%;
 }
 .limit
 {
-    color: hsl(180, 100%, 20%);
+    color: hsl(var(--accentColor));
 }
 .done
 {

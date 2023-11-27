@@ -15,17 +15,22 @@ const date = document.getElementsByClassName("date")[0];
     pprompt.style.display = "none"
     
     
-    
     onclickers()
-    const today = Math.floor((Date.now() - ((hour)* 7.5)) / day);// today duh
+    let today = Math.floor((Date.now() - ((hour)* 4.0)) / day);// today duh
     date.innerHTML = today - 19679 ;
     
     // let today = prompt("today?")
     
     dateCheck(today)
-    
+    colorchange();
     score.innerHTML = getFromCache(); 
-
+    let random = localStorage.getItem('cachedColor');
+    if (random == null)
+    {
+        localStorage.setItem('cachedColor', Math.floor(Math.random * 2))
+    }
+    colorchange(random)
+    
     for (let i = 0; i < points.length; i++)
     {
         let done = document.getElementsByClassName('done')[i]
@@ -34,6 +39,7 @@ const date = document.getElementsByClassName("date")[0];
     }
     sizeOfChecker()
     const x = localStorage.getItem('cachedDate')
+
 }
 
 
@@ -189,16 +195,23 @@ function sizeOfChecker()
     return;
 } 
 
-function colorchange()
+function colorchange(random)
 {
-    const colors = ["red", "cyan", "lime"] + 1;
 
-    let random = Math.random() * colors.length
+    const textureColor = ["51, 100%, 50%", "6, 78%, 57%",];
+    const accentColor = ["0, 0%, 100%", "145, 63%, 49%"];
+    const color = ["0, 100%, 0%", "240, 100%, 25%"];
 
-    return colors(random);
+    
+    document.documentElement.style.setProperty('--color', color[random]);
+    document.documentElement.style.setProperty('--accentColor', accentColor[random]);
+    document.documentElement.style.setProperty('--textureColor', textureColor[random]);
+    
+    return ;
+
 }
 
-function dateChange(x)
+function dateChange(today)
 {
     const temp = localStorage.getItem('cachedValue')
     localStorage.clear();
@@ -208,19 +221,24 @@ function dateChange(x)
     localStorage.setItem('cachedDate', today);
 
     const dice = Math.floor(Math.random() * 6) + 1; 
-    alert("luck? " + dice)
-    console.log("dice:" + dice)
 
-    localStorage.setItem('cachedDice', dice);
+    random = Math.floor(Math.random() * 2) ; 
+
+    
+    localStorage.setItem('cachedColor', dice);
+     localStorage.setItem('cachedDice', dice);
+
+     alert("luck? " + dice)
+     console.log("dice:" + dice)
 
     for (let i = 0; i < points.length; i++)
     {
         localStorage.setItem('cachedLimit' + i, 0)
     }
 
-    alert("date change has being detected today:- " + today + "local storage" + x);
+    alert("date change has being detected today:- " + today + "local storage");
 
-    document.documentElement.style.setProperty('textureColor', colorchange());
 
     return;
 }
+
