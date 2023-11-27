@@ -14,7 +14,7 @@ const nColor = 3;
     mprompt.style.display = "none"
     pprompt.style.display = "none"
     
-    alert("no prompt?")
+    alert("no prompt? k ")
     onclickers()
     let today = Math.floor((Date.now() - ((hour)* 4)) / day);// today duh
     date.innerHTML = today - 19679 ;
