@@ -7,14 +7,14 @@ const points = document.getElementsByClassName("points")
 const hour =  60 * 60 * 1000 //no of miliseconds in a hour
 const day = 24 * hour//no of miliseconds in a day
 const date = document.getElementsByClassName("date")[0];
-
+const nColor = 8;
 
 
 {
     mprompt.style.display = "none"
     pprompt.style.display = "none"
     
-    alert("adlsf")
+    alert("no prompt?")
     onclickers()
     let today = Math.floor((Date.now() - ((hour)* 4.0)) / day);// today duh
     date.innerHTML = today - 19679 ;
@@ -27,9 +27,8 @@ const date = document.getElementsByClassName("date")[0];
     let random = localStorage.getItem('cachedColor');
     if (random == null)
     {
-        localStorage.setItem('cachedColor', Math.floor(Math.random * 2))
+        localStorage.setItem('cachedColor', Math.floor(Math.random * nColor))
     }
-    random = prompt("faj")
     colorchange(random)
     
     for (let i = 0; i < points.length; i++)
@@ -199,9 +198,12 @@ function sizeOfChecker()
 function colorchange(random)
 {
 
-    const textureColor = ["51, 100%, 50%", "6, 78%, 57%",];
-    const accentColor = ["0, 0%, 100%", "145, 63%, 49%"];
-    const color = ["0, 100%, 0%", "240, 100%, 25%"];
+    const color = ["0, 100%, 0%", "240, 100%, 25%", "180, 100%, 25%","30, 69%, 58%", "5, 69%, 58%", "240, 64%, 45%", "145, 64%, 50%", "39, 89%, 58%"];
+    const textureColor = ["51, 100%, 50%", "6, 78%, 57%", "5, 100%, 69%", " 207, 64%, 49%", "39, 89%, 58%", "30, 69%, 58%", "49, 89%, 50%", "207, 64%, 49%"];
+    const accentColor = ["0, 0%, 100%", "145, 63%, 49%", "146, 50%, 36%", " 168, 76%, 38%", "207, 64%, 49%", "25, 100%, 41%", "43, 79%, 42%", "49, 89%, 50%"];
+   
+ 
+      
 
     
     document.documentElement.style.setProperty('--color', color[random]);
@@ -223,10 +225,10 @@ function dateChange(today)
 
     const dice = Math.floor(Math.random() * 6) + 1; 
 
-    random = Math.floor(Math.random() * 2) ; 
+    random = Math.floor(Math.random() * nColor) ; 
 
     
-    localStorage.setItem('cachedColor', dice);
+    localStorage.setItem('cachedColor', random);
      localStorage.setItem('cachedDice', dice);
 
      alert("luck? " + dice)
