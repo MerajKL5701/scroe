@@ -22,7 +22,7 @@ const date = document.getElementsByClassName("date")[0];
     
     // let today = prompt("today?")
     
-    datechange(today)
+    dateCheck(today)
     
     score.innerHTML = getFromCache(); 
 
@@ -149,7 +149,7 @@ function getFromCache()
     return 370;
 }
 
-function datechange(today)
+function dateCheck(today)
 {
     let x = localStorage.getItem('cachedDate')
     if (x == null)
@@ -160,31 +160,13 @@ function datechange(today)
     if (!(today == x))
     {
 
-        const temp = localStorage.getItem('cachedValue')
-        localStorage.clear();
-
-        localStorage.setItem('cachedValue', temp)
-
-        localStorage.setItem('cachedDate', today);
-
-        const dice = Math.floor(Math.random() * 6) + 1; 
-        alert("luck? " + dice)
-        console.log("dice:" + dice)
-
-        localStorage.setItem('cachedDice', dice);
-
-        for (let i = 0; i < points.length; i++)
-        {
-            localStorage.setItem('cachedLimit' + i, 0)
-        }
-
-        alert("date change has being detected today:- " + today + "local storage" + x);
-        return;
+        dateChange(x)
     }
     else
     {
         return;
     }
+    
 }
 function sizeOfChecker()
 {
@@ -206,3 +188,39 @@ function sizeOfChecker()
     }
     return;
 } 
+
+function colorchange()
+{
+    const colors = ["red", "cyan", "lime"] + 1;
+
+    let random = Math.random() * colors.length
+
+    return colors(random);
+}
+
+function dateChange(x)
+{
+    const temp = localStorage.getItem('cachedValue')
+    localStorage.clear();
+
+    localStorage.setItem('cachedValue', temp)
+
+    localStorage.setItem('cachedDate', today);
+
+    const dice = Math.floor(Math.random() * 6) + 1; 
+    alert("luck? " + dice)
+    console.log("dice:" + dice)
+
+    localStorage.setItem('cachedDice', dice);
+
+    for (let i = 0; i < points.length; i++)
+    {
+        localStorage.setItem('cachedLimit' + i, 0)
+    }
+
+    alert("date change has being detected today:- " + today + "local storage" + x);
+
+    document.documentElement.style.setProperty('textureColor', colorchange());
+
+    return;
+}
