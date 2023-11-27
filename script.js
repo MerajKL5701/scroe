@@ -14,7 +14,7 @@ const date = document.getElementsByClassName("date")[0];
     mprompt.style.display = "none"
     pprompt.style.display = "none"
     
-    
+    alert("adlsf")
     onclickers()
     let today = Math.floor((Date.now() - ((hour)* 4.0)) / day);// today duh
     date.innerHTML = today - 19679 ;
