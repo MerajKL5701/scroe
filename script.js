@@ -168,7 +168,7 @@ function dateCheck(today)
     if (!(today == x))
     {
 
-        dateChange(x)
+        dateChange(today)
     }
     else
     {
