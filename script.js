@@ -14,7 +14,7 @@ const nColor = 3;
     mprompt.style.display = "none"
     pprompt.style.display = "none"
     
-    alert("no prompt? k ")
+    alert(",bruh? k ")
     onclickers()
     let today = Math.floor((Date.now() - ((hour)* 4)) / day);// today duh
     date.innerHTML = today - 19679 ;
@@ -22,7 +22,8 @@ const nColor = 3;
     // let today = prompt("today?")
     
     dateCheck(today)
-    colorchange(random);
+    
+
     score.innerHTML = getFromCache(); 
     let random = localStorage.getItem('cachedColor');
     if (random == null)
