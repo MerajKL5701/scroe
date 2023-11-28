@@ -1,5 +1,6 @@
 const  score = document.getElementsByClassName("score")[0]
-const  minusprompt = document.getElementsByClassName("minusprompt")[0]
+const  elem = document.getElementsByClassName("main")[0]
+const  minusprompt = document.getElementsByClassName("minusprompt")[0]document.getElementsByClassName("minusprompt")[0
 const  mprompt = document.getElementsByClassName("mPrompt")[0]
 const  pprompt = document.getElementsByClassName("pPrompt")[0]
 const clicker = document.getElementsByClassName("clicker")
