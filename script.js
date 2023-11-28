@@ -14,7 +14,7 @@ const nColor = 3;
     mprompt.style.display = "none"
     pprompt.style.display = "none"
     
-    alert(",bruh? k ")
+
     onclickers()
     let today = Math.floor((Date.now() - ((hour)* 4)) / day);// today duh
     date.innerHTML = today - 19679 ;
@@ -154,7 +154,7 @@ function getFromCache()
     {
         return x;
     }
-    return 370;
+    return 500;
 }
 
 function dateCheck(today)
