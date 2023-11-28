@@ -7,14 +7,17 @@ const points = document.getElementsByClassName("points")
 const hour =  60 * 60 * 1000 //no of miliseconds in a hour
 const day = 24 * hour//no of miliseconds in a day
 const date = document.getElementsByClassName("date")[0];
-const nColor = 3;
+const nColor = 14;
+let random;
 
 
 {
     mprompt.style.display = "none"
     pprompt.style.display = "none"
+
+    scrollToBottom();
     
-    alert("no prompt? k ")
+    alert("? k ")
     onclickers()
     let today = Math.floor((Date.now() - ((hour)* 4)) / day);// today duh
     date.innerHTML = today - 19679 ;
@@ -22,13 +25,14 @@ const nColor = 3;
     // let today = prompt("today?")
     
     dateCheck(today)
-    colorchange(random);
     score.innerHTML = getFromCache(); 
-    let random = localStorage.getItem('cachedColor');
+     random = localStorage.getItem('cachedColor');
     if (random == null)
     {
         localStorage.setItem('cachedColor', Math.floor(Math.random() * nColor))
     }
+
+
 
     colorchange(random)
     
@@ -39,7 +43,6 @@ const nColor = 3;
         done.innerHTML = localStorage.getItem('cachedLimit' + i)
     }
     sizeOfChecker()
-    const x = localStorage.getItem('cachedDate')
 
 }
 
@@ -149,11 +152,11 @@ function saveToCache(i) {
 function getFromCache()
  {
     let x = localStorage.getItem('cachedValue');
-    if (!(x == null))
+    if (!(x == null) )
     {
         return x;
     }
-    return 370;
+    return 500;
 }
 
 function dateCheck(today)
@@ -167,7 +170,7 @@ function dateCheck(today)
     if (!(today == x))
     {
 
-        dateChange(x)
+        dateChange(today)
     }
     else
     {
@@ -181,7 +184,6 @@ function sizeOfChecker()
     const limit = document.getElementsByClassName("limit");
     for (let i = 0, n = clicker.length; i < n; i++)
     {
-        console.log("dice no "+ i + " value " + Math.floor(Math.random() * 6) + 6 )
         const m = parseInt(done[i].innerHTML);
         const n = parseInt(limit[i].innerHTML);
         if (m == n)
@@ -199,17 +201,19 @@ function sizeOfChecker()
 function colorchange(random)
 {
 
-    const color = ["0, 100%, 0%", "240, 100%, 25%", "180, 100%, 25%","30, 69%, 58%", "5, 69%, 58%", "240, 64%, 45%", "145, 64%, 50%", "39, 89%, 58%"];
-    const textureColor = ["51, 100%, 50%", "6, 78%, 57%", "5, 100%, 69%", " 207, 64%, 49%", "39, 89%, 58%", "30, 69%, 58%", "49, 89%, 50%", "207, 64%, 49%"];
-    const accentColor = ["0, 0%, 100%", "145, 63%, 49%", "146, 50%, 36%", " 168, 76%, 38%", "207, 64%, 49%", "25, 100%, 41%", "43, 79%, 42%", "49, 89%, 50%"];
-   
- 
-      
+    const color = ["#172D13", "#FDF5DF", "#FECD45", "#1A2238", "#3FD2C7", "#FB8122","#D48166", "#051622", "#FDD935", "#5DAA68", "#141824", "#182978", "#191919", "#000000"];
+    const textureColor = ["#D76F30", "#5EBEC4", "#2568FB", "#FF6A3D", "#99DDFF", "#1D2228", "#373A36", "#1BA098", "#FDD935", "#3F6844", "#FFB600", "#6688CC", "#FAB162", "#ffd700"];
+    const accentColor = ["#6BB77B", "#F92C85", "#2568FB", "#F4DB7D", "#00458B", "#E1E2E2", "#E6E2DD", "#DEB992", "#FDD935", "#FAF1CF", "#0049FF", "#ACBFE6", "#FAB162", "#ffffff"];
+    
+    random = 12
+    console.log(color.length) 
+    console.log(textureColor.length) 
+    console.log(accentColor.length) 
 
     
-    document.documentElement.style.setProperty('--color', color[random]);
-    document.documentElement.style.setProperty('--accentColor', accentColor[random]);
-    document.documentElement.style.setProperty('--textureColor', textureColor[random]);
+    document.documentElement.style.setProperty('--color', hexToHSL(color[random]));
+    document.documentElement.style.setProperty('--accentColor', hexToHSL(accentColor[random]));
+    document.documentElement.style.setProperty('--textureColor', hexToHSL(textureColor[random]));
     
     return ;
 
@@ -246,3 +250,51 @@ function dateChange(today)
     return;
 }
 
+function hexToHSL(hex) {
+    // Convert hex to RGB first
+    let r = 0, g = 0, b = 0;
+    if (hex.length == 4) {
+      r = "0x" + hex[1] + hex[1];
+      g = "0x" + hex[2] + hex[2];
+      b = "0x" + hex[3] + hex[3];
+    } else if (hex.length == 7) {
+      r = "0x" + hex[1] + hex[2];
+      g = "0x" + hex[3] + hex[4];
+      b = "0x" + hex[5] + hex[6];
+    }
+    
+    // Then to HSL
+    r /= 255, g /= 255, b /= 255;
+    let cmin = Math.min(r,g,b), cmax = Math.max(r,g,b), delta = cmax - cmin;
+    let h = 0, s = 0, l = 0;
+  
+    if (delta == 0)
+      h = 0;
+    else if (cmax == r)
+      h = ((g - b) / delta) % 6;
+    else if (cmax == g)
+      h = (b - r) / delta + 2;
+    else
+      h = (r - g) / delta + 4;
+  
+    h = Math.round(h * 60);
+      
+    if (h < 0)
+      h += 360;
+  
+    l = (cmax + cmin) / 2;
+    s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+    s = +(s * 100).toFixed(1);
+    l = +(l * 100).toFixed(1);
+  
+    const hsl =  h + ", " + s + "%, " + l + "%"
+    return hsl;
+  }
+
+// Scroll to the end of the document
+
+function scrollToBottom() 
+{
+    window.scrollTo(0, document.body.scrollHeight);
+}
+// Call the function to scroll to the bottom

@@ -11,6 +11,9 @@
     --color : 0, 100%, 0%;
     --textureColor : 51, 100%, 50%;
     --accentColor:0, 0%, 100%;
+    color:#ffd700;
+    color:#ffd700;
+    color:#000000;
 }
 hr 
 {
@@ -19,12 +22,14 @@ hr
 
 html, body 
 {
+
     height: 100vh;
     margin: 0;
     display: grid;
     place-content: center;
     background-color: hsl(var(--color));
 }
+
 
 .main 
 {
