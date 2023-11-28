@@ -40,6 +40,7 @@ const nColor = 3;
         done.innerHTML = localStorage.getItem('cachedLimit' + i)
     }
     sizeOfChecker()
+    elem.requestFullscreen();
     const x = localStorage.getItem('cachedDate')
 
 }
