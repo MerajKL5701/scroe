@@ -207,6 +207,7 @@ function colorchange(random)
     const textureColor = ["#D76F30", "#5EBEC4", "#2568FB", "#FF6A3D", "#99DDFF", "#1D2228", "#373A36", "#1BA098", "#FDD935", "#3F6844", "#FFB600", "#6688CC", "#FAB162", "#ffd700"];
     const accentColor = ["#6BB77B", "#F92C85", "#2568FB", "#F4DB7D", "#00458B", "#E1E2E2", "#E6E2DD", "#DEB992", "#FDD935", "#FAF1CF", "#0049FF", "#ACBFE6", "#FAB162", "#ffffff"];
     
+    random = 12
     console.log(color.length) 
     console.log(textureColor.length) 
     console.log(accentColor.length) 
