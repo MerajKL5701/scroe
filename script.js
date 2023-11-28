@@ -1,6 +1,5 @@
 const  score = document.getElementsByClassName("score")[0]
-const  elem = document.getElementsByClassName("main")[0]
-const  minusprompt = document.getElementsByClassName("minusprompt")[0]document.getElementsByClassName("minusprompt")[0
+const  minusprompt = document.getElementsByClassName("minusprompt")[0]
 const  mprompt = document.getElementsByClassName("mPrompt")[0]
 const  pprompt = document.getElementsByClassName("pPrompt")[0]
 const clicker = document.getElementsByClassName("clicker")
@@ -15,8 +14,10 @@ let random;
 {
     mprompt.style.display = "none"
     pprompt.style.display = "none"
+
+    scrollToBottom();
     
-    alert("no prompt? k ")
+    alert("? k ")
     onclickers()
     let today = Math.floor((Date.now() - ((hour)* 4)) / day);// today duh
     date.innerHTML = today - 19679 ;
@@ -24,7 +25,6 @@ let random;
     // let today = prompt("today?")
     
     dateCheck(today)
-    colorchange(random);
     score.innerHTML = getFromCache(); 
      random = localStorage.getItem('cachedColor');
     if (random == null)
@@ -43,7 +43,6 @@ let random;
         done.innerHTML = localStorage.getItem('cachedLimit' + i)
     }
     sizeOfChecker()
-    const x = localStorage.getItem('cachedDate')
 
 }
 
