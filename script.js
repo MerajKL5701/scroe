@@ -15,7 +15,6 @@ let random;
     mprompt.style.display = "none"
     pprompt.style.display = "none"
 
-    scrollToBottom();
     
     alert("? k ")
     onclickers()
@@ -203,11 +202,11 @@ function sizeOfChecker()
 function colorchange(random)
 {
 
-    const color = ["#172D13", "#FDF5DF", "#FECD45", "#1A2238", "#3FD2C7", "#FB8122","#D48166", "#051622", "#FDD935", "#5DAA68", "#141824", "#182978", "#191919", "#000000"];
-    const textureColor = ["#D76F30", "#5EBEC4", "#2568FB", "#FF6A3D", "#99DDFF", "#1D2228", "#373A36", "#1BA098", "#FDD935", "#3F6844", "#FFB600", "#6688CC", "#FAB162", "#ffd700"];
-    const accentColor = ["#6BB77B", "#F92C85", "#2568FB", "#F4DB7D", "#00458B", "#E1E2E2", "#E6E2DD", "#DEB992", "#FDD935", "#FAF1CF", "#0049FF", "#ACBFE6", "#FAB162", "#ffffff"];
+    const color = ["#172D13", "#FDF5DF", "#FECD45", "#1A2238", "#3FD2C7", "#FB8122","#D48166", "#051622", "#FDD935", "#5DAA68", "#141824", "#182978", "#191919", "#000010", ".F0F0F0", "009B4D", "#DDD0C8"];
+    const textureColor = ["#D76F30", "#5EBEC4", "#2568FB", "#FF6A3D", "#99DDFF", "#1D2228", "#373A36", "#1BA098", "#FDD935", "#3F6844", "#FFB600", "#6688CC", "#FAB162", "#ffd700", "#E7473C", "#FFCC00", "#323232"];
+    const accentColor = ["#6BB77B", "#F92C85", "#2568FB", "#F4DB7D", "#00458B", "#E1E2E2", "#E6E2DD", "#DEB992", "#FDD935", "#FAF1CF", "#0049FF", "#ACBFE6", "#FAB162", "#ffffff", "#E7473C", "#FAF5E9", "#323232"];
     
-    random = 12
+
     console.log(color.length) 
     console.log(textureColor.length) 
     console.log(accentColor.length) 
@@ -295,8 +294,5 @@ function hexToHSL(hex) {
 
 // Scroll to the end of the document
 
-function scrollToBottom() 
-{
-    window.scrollTo(0, document.body.scrollHeight);
-}
+
 // Call the function to scroll to the bottom
