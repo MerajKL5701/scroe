@@ -222,6 +222,7 @@ function colorchange(random)
 
 function dateChange(today)
 {
+    
     const temp = localStorage.getItem('cachedValue')
     localStorage.clear();
 
@@ -231,14 +232,11 @@ function dateChange(today)
 
     const dice = Math.floor(Math.random() * 6) + 1; 
 
-    random = Math.floor(Math.random() * nColor) ; 
+    localStorage.setItem('cachedDice', dice);
+    colorRandomize();
 
-    
-    localStorage.setItem('cachedColor', random);
-     localStorage.setItem('cachedDice', dice);
-
-     alert("luck? " + dice)
-     console.log("dice:" + dice)
+    alert("luck? " + dice)
+    console.log("dice:" + dice)
 
     for (let i = 0; i < points.length; i++)
     {
@@ -292,7 +290,11 @@ function hexToHSL(hex) {
     return hsl;
   }
 
-// Scroll to the end of the document
+function colorRandomize()
+{
+    random = Math.floor(Math.random() * nColor) ; 
 
+    
+    localStorage.setItem('cachedColor', random);
 
-// Call the function to scroll to the bottom
+}
