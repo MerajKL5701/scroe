@@ -16,7 +16,7 @@ let random;
     pprompt.style.display = "none"
 
     
-    alert("? k ")
+    // alert("? k ")
     onclickers()
     let today = Math.floor((Date.now() - ((hour)* 4)) / day);// today duh
     date.innerHTML = today - 19679 ;
