@@ -18,7 +18,7 @@ let random;
     
     // alert("? k ")
     onclickers()
-    let today = Math.floor((Date.now() - ((hour)* 4)) / day);// today duh
+    let today = Math.floor((Date.now() - (0)) / day);// today duh
     date.innerHTML = today - 19679 ;
     
     // let today = prompt("today?")
