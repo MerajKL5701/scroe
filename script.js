@@ -57,7 +57,7 @@ function minus_prompt(e)
 
             localStorage.setItem('cachedDice', Math.floor(Math.random() * 6) + 1)
         }
-        if (!(x == 6))
+        if ((!(x == 6)) || (today - 19679 >= 30))
         {
             alert(x)
             document.getElementsByClassName("minus")[0].innerHTML = x
@@ -105,6 +105,8 @@ function additon_calc(i)
         pprompt.style.display = "none"
         return;
     }
+
+    
     value++
     localStorage.setItem('cachedLimit' + i , value);
     done.innerHTML = value
@@ -124,7 +126,7 @@ function additon_calc(i)
     pprompt.style.display = "none"
 
  
-
+    
     saveToCache(n);
     sizeOfChecker()
 
