@@ -22,7 +22,7 @@ hr
 html, body 
 {
 
-    height: 90vh;
+    height: 100vh;
     margin: 0;
     display: grid;
     place-content: center;
